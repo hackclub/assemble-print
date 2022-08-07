@@ -7,6 +7,8 @@ import cors from 'cors';
 
 import router from './router';
 import errorHandlers from './helpers/errorHandlers';
+import fileupload from 'express-fileupload';
+import path from 'path';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -16,6 +18,13 @@ app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
 
 // Allow CORS
 app.use(cors());
+
+app.use(
+	fileupload({
+		useTempFiles: true,
+		tempFileDir: path.join(__dirname, '../uploads/'),
+	})
+);
 
 // Add paths (router)
 app.use(router);
