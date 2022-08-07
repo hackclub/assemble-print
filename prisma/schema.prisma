@@ -1,0 +1,19 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./wahoo.db"
+}
+
+model Print {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+
+  file    Bytes
+  printed Boolean @default(false)
+}

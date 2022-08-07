@@ -1,4 +1,5 @@
 import express, { Router, Request, Response, NextFunction } from 'express';
+import prisma from './prisma';
 
 const router: Router = express.Router();
 
@@ -11,7 +12,7 @@ router.get('/ping', (req: Request, res: Response) => {
 	res.send('pong! 🏓');
 });
 
-router.get('/', (req: Request, res: Response) => {
+router.get('/', async (req: Request, res: Response) => {
 	const response = {
 		message:
 			'Hello World! Welcome to the Express Typescript Simple Boilerplate.',
@@ -38,7 +39,7 @@ const ensure_auth = (req: Request, res: Response, next: NextFunction) => {
 	});
 };
 
-router.post('/print', ensure_auth, (req: Request, res: Response) => {
+router.post('/print', ensure_auth, async (req: Request, res: Response) => {
 	if (!req.files || Object.keys(req.files).length === 0) {
 		return res.status(400).send('No files were uploaded.');
 	}
@@ -67,6 +68,8 @@ router.post('/print', ensure_auth, (req: Request, res: Response) => {
 	const path = image.tempFilePath;
 	console.log(name);
 	console.log(path);
+
+	await prisma.print.create({ data: { file: image.data } });
 
 	res.json({
 		name,

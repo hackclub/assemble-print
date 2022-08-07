@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-dotenv.config(); // Load envrionment variables from .env file
+dotenv.config(); // Load environment variables from .env file
 
 import express from 'express';
 import helmet from 'helmet';
@@ -21,8 +21,8 @@ app.use(cors());
 
 app.use(
 	fileupload({
-		useTempFiles: true,
-		tempFileDir: path.join(__dirname, '../uploads/'),
+		// useTempFiles: true,
+		// tempFileDir: path.join(__dirname, '../uploads/'),
 	})
 );
 
