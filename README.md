@@ -1,3 +1,10 @@
+1. install printer driver
+2. set printer as default printer
+3. yarn
+4. yarn dev
+5. ngrok http 3000
+6. todo: on scrapbook, POST image to this server
+
 # Express Typescript Simple Boilerplate
 
 The simple boilerplate for creating up a quick [Express](https://expressjs.com/) server with [TypeScript](https://www.typescriptlang.org/).
