@@ -39,3 +39,12 @@ app.listen(PORT, () => {
 			'\n=============================\n'
 	);
 });
+
+import { merge } from './helpers/merge';
+
+merge([
+	'/Users/garyhtou/Code/hackclub/assemble-print/uploads/35.png',
+	'/Users/garyhtou/Code/hackclub/assemble-print/uploads/36.png',
+	'/Users/garyhtou/Code/hackclub/assemble-print/uploads/37.png',
+	'/Users/garyhtou/Code/hackclub/assemble-print/uploads/38.png',
+]);
