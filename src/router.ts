@@ -1,5 +1,4 @@
 import express, { Router, Request, Response, NextFunction } from 'express';
-import prisma from './prisma';
 
 const router: Router = express.Router();
 
@@ -70,6 +69,8 @@ router.post('/print', ensure_auth, async (req: Request, res: Response) => {
 	console.log(path);
 
 	await prisma.print.create({ data: { file: image.data } });
+
+	print(path);
 
 	res.json({
 		name,
