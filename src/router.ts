@@ -1,5 +1,5 @@
 import express, { Router, Request, Response, NextFunction } from 'express';
-import { printer } from '../print-system/printer';
+import { printer } from './utils/printer';
 
 const router: Router = express.Router();
 

@@ -1,6 +1,6 @@
-import printer from '@thiagoelg/node-printer';
+const printer = require('@thiagoelg/node-printer');
 
-const print = (filename: string) => {
+const print = (filename) => {
 	printer.printFile({
 		filename: filename,
 		success: (jobId) => {
